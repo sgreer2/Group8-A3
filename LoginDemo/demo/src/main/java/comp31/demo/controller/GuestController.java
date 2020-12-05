@@ -6,4 +6,5 @@ import org.springframework.stereotype.Controller;
 public class GuestController
 {
     // TESTING
+    // Testing
 }
