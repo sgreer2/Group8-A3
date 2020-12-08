@@ -26,9 +26,18 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="USER_ID")
-    private Integer userId;
+    private Long userId;
     @Column(name="USER_NAME")
     private String userName;
     @Column(name="USER_ROLE")
     private String userRole;
+    
+    public Long getId() {
+		return userId;
+    }
+    public String getName() {
+		return userName;
+    }
+    
+
 }

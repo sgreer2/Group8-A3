@@ -31,9 +31,11 @@ public class Show {
     @JoinColumn(name = "USER_ID", nullable = true)
     private User user;
 
+
     public void setUser(User currentUser)
     {
         user= currentUser;
+
     }
 
     
