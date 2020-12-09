@@ -27,6 +27,17 @@ public class CreatorController {
     @Autowired ShowRepo showRepo;
     @Autowired UserRepo userRepo;
 
+    @GetMapping("/viewCreator")
+    public String viewPage(Model model)
+    {
+        User creator=(User)model.getAttribute("currentUser");
+        List <Show> creatorShows = showRepo.findByUserId(creator.getId());
+        model.addAttribute("creatorShows",creatorShows);
+        return "creatorViewPage";
+    }
+
+
+
     @PostMapping("/delete")
     public String delete(@RequestParam(value = "deleteList" , required = false) Long[] deleteList, Model model)
     {
@@ -55,7 +66,8 @@ public class CreatorController {
     @PostMapping("/addShow")
     public String addShow(Show show, Model model)
     {
-        show.setUser((User)model.getAttribute("currentUser"));
+        User user =(User)model.getAttribute("currentUser");
+        show.setUserId(user.getId());
         showRepo.save(show);
         List<Show> Shows = (List<Show>) showRepo.findAll();
         model.addAttribute("Shows", Shows);
