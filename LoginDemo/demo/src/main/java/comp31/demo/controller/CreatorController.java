@@ -16,10 +16,12 @@ import comp31.demo.model.User;
 import comp31.demo.repo.ShowRepo;
 import comp31.demo.repo.UserRepo;
 
+//Nick Best
+
 @Controller
 
 
-@SessionAttributes({ "currentUserName", "currentUserShows", "deleteList" })
+@SessionAttributes({"currentUserName", "currentUserShows", "deleteList" })
 
 public class CreatorController {
     @Autowired ShowRepo showRepo;

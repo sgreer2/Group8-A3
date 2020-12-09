@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+//Nick Best
+
 @Entity
 @Data
 @Table (name="SHOW")
