@@ -21,7 +21,7 @@ import comp31.demo.repo.UserRepo;
 @Controller
 
 
-@SessionAttributes({"currentUserName", "currentUserShows", "deleteList" })
+@SessionAttributes({"currentUser", "creatorShows", "deleteList" })
 
 public class CreatorController {
     @Autowired ShowRepo showRepo;

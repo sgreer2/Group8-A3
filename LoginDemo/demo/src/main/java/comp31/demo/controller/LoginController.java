@@ -35,8 +35,10 @@ public class LoginController {
         User currentUser = loginService.validate(user.getUserName());
         if (currentUser != null)
         {
+            
             nextPage = currentUser.getUserRole() + "page";
             model.addAttribute("currentUser", currentUser);
+
         }
         else 
         {
