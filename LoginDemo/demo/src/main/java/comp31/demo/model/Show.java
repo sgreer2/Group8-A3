@@ -29,8 +29,8 @@ public class Show {
     @Column(name="SHOW_NUM")
     private Integer showNum;
     @Column(name="USER_ID")
-    private Long userId ;
-	public void setUserId(Long userNew) {
+    private Integer userId ;
+	public void setUserId(Integer userNew) {
         userId=userNew;
 	}
 
