@@ -11,13 +11,9 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//Nick Best
 
-// CREATE TABLE user
-// (
-//     userId int PRIMARY KEY AUTO_INCREMENT,
-//     userName TEXT,
-//     userRole TEXT
-// );
+
 @Data
 @Entity
 @NoArgsConstructor
