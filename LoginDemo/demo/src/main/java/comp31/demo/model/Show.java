@@ -28,17 +28,17 @@ public class Show {
     private String showDesc;
     @Column(name="SHOW_NUM")
     private Integer showNum;
+    @Column(name="USER_ID")
+    private Long userId ;
+	public void setUserId(Long userNew) {
+        userId=userNew;
+	}
 
-    @ManyToOne 
-    @JoinColumn(name = "USER_ID", nullable = true)
-    private User user;
 
 
-    public void setUser(User currentUser)
-    {
-        user= currentUser;
-
-    }
+  //  @ManyToOne 
+   // @JoinColumn(name = "USER_ID", nullable = true)
+   // private User user;
 
     
 }

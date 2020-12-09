@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>Seller Page</h1>
+    <h2 th:text="|Current User: ${currentUser.getName()}|"></h2>
+    <table>
+        <td>Title</td>
+        <td>Description</td>
+        <td>Episode Count</td>
+        <tr th:each="show : ${creatorShows}">
+            <td th:text="${show.showTitle}"> </td>
+            <td th:text="${show.showDesc}"> </td>
+            <td th:text="${show.showNumEp}"> </td>
+            <td><button formaction="updateShow" th:value=${show.showId}>Update Show</button></td>
+ 
+        </tr>
+    </table>
+    <form>
+    <button formaction="addShow">Add New Show</button>
+    
+    </form>
+    <form action="/">
+        <button  type="submit">Login Page</button>
+    </form>
+</body>
+</html>

@@ -13,7 +13,7 @@ import comp31.demo.model.User;
 @Repository
 public interface ShowRepo extends CrudRepository <Show, Long> {
     public List<Show> findAll();
-    public List<Show> findByUser(User currentUser);
+    public List<Show> findByUserId(Long userId);
     //Show Repo goes here
     
 }
