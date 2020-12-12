@@ -12,9 +12,9 @@
     <h2 th:text="|Current User: ${currentUser.getName()}|"></h2>
     <h2 th:text="|Current Id: ${currentUser.getId()}|"></h2>
     <table>
-        <td>Title</td>
-        <td>Description</td>
-        <td>Episode Count</td>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Episode Count</th>
         <tr th:each="show : ${creatorShows}">
             <td th:text="${show.showTitle}"> </td>
             <td th:text="${show.showDesc}"> </td>
