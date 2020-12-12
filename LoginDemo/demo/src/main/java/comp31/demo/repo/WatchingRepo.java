@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import comp31.demo.model.User;
 import comp31.demo.model.Watching;
 
+// Stephen Greer
+
 @Repository
 public interface WatchingRepo extends CrudRepository<Watching, Integer> {
     List<Watching> findByUser(User user);
