@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+// Stephen Greer
+
 @Data
 @Entity
 @Table(name="WATCHING")
