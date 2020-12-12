@@ -26,7 +26,7 @@ public class Show {
     private String showTitle;
     @Column(name="SHOW_DESC")
     private String showDesc;
-    @Column(name="SHOW_NUM")
+    @Column(name="SHOW_NUM_EP")
     private Integer showNum;
     @Column(name="USER_ID")
     private Integer userId ;
