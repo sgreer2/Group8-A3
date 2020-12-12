@@ -11,6 +11,8 @@ import comp31.demo.repo.ShowRepo;
 import comp31.demo.repo.UserRepo;
 import comp31.demo.service.LoginService;
 
+// Stephen Greer
+
 @Controller
 @SessionAttributes("currentUser")
 public class AdminController {
