@@ -17,7 +17,7 @@
         <tr th:each="show : ${creatorShows}">
             <td th:text="${show.showTitle}"> </td>
             <td th:text="${show.showDesc}"> </td>
-            <td th:text="${show.showNumEp}"> </td>
+            <td th:text="${show.showNum}"> </td>
             <td><button formaction="updateShow" th:value=${show.showId}>Update Show</button></td>
  
         </tr>
