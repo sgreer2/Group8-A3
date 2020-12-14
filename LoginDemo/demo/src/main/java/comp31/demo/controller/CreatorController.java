@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-
 import comp31.demo.model.Show;
 import comp31.demo.model.User;
+import comp31.demo.model.Watching;
 import comp31.demo.repo.ShowRepo;
 import comp31.demo.repo.UserRepo;
+import comp31.demo.repo.WatchingRepo;
 
 //Nick Best
 
@@ -26,6 +27,7 @@ import comp31.demo.repo.UserRepo;
 public class CreatorController {
     @Autowired ShowRepo showRepo;
     @Autowired UserRepo userRepo;
+    @Autowired WatchingRepo watchingRepo;
 
     @GetMapping("/viewCreator")
     public String viewPage(Model model)
@@ -46,15 +48,20 @@ public class CreatorController {
             for (int i=0; i< deleteList.length; i++) 
             {
                 Show deleteShow = showRepo.findById(deleteList[i]).get();
+                List <Watching> watchDelete=(List<Watching>) watchingRepo.findByShow(deleteShow);
+                for (int j=0; j < watchDelete.size() ; j++)
+                {
+                    watchingRepo.delete(watchDelete.get(i));
+                }
                 showRepo.deleteById(deleteShow.getId());
-
+                
 
             }
             
         }
         User creator =(User)model.getAttribute("currentUser");
         List<Show> shows = (List<Show>) showRepo.findByUserId(creator.getId());
-        model.addAttribute("shows", shows);
+        model.addAttribute("creatorShows", shows);
 
         return "creatorViewPage";
     }
