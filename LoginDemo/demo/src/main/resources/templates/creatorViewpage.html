@@ -11,6 +11,7 @@
     <h1>Seller Page</h1>
     <h2 th:text="|Current User: ${currentUser.getName()}|"></h2>
     <h2 th:text="|Current Id: ${currentUser.getId()}|"></h2>
+    <form method="POST">
     <table>
         <th>Title</th>
         <th>Description</th>
@@ -19,12 +20,14 @@
             <td th:text="${show.showTitle}"> </td>
             <td th:text="${show.showDesc}"> </td>
             <td th:text="${show.showNum}"> </td>
+            <td><input type="checkbox" id="show" name="deleteList"  th:value=${show.showId}></td>
             <td><button formaction="updateShow" th:value=${show.showId}>Update Show</button></td>
- 
         </tr>
     </table>
+    <td><button formaction="creatorDelete">Delete Show</button></td>
+    </form>
     <form>
-    <button formaction="addShow">Add New Show</button>
+    <button formaction="creatorAddShow">Add New Show</button>
     
     </form>
     <form action="/">
