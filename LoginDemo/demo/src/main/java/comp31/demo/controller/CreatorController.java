@@ -51,18 +51,15 @@ public class CreatorController {
                 List <Watching> watchDelete=(List<Watching>) watchingRepo.findByShow(deleteShow);
                 for (int j=0; j < watchDelete.size() ; j++)
                 {
-                    watchingRepo.delete(watchDelete.get(i));
+                    watchingRepo.delete(watchDelete.get(j));
                 }
                 showRepo.deleteById(deleteShow.getId());
-                
-
             }
             
         }
         User creator =(User)model.getAttribute("currentUser");
         List<Show> shows = (List<Show>) showRepo.findByUserId(creator.getId());
         model.addAttribute("creatorShows", shows);
-
         return "creatorViewPage";
     }
 
