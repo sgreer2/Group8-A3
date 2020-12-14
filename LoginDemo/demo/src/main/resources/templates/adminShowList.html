@@ -18,14 +18,14 @@
                 <th>Title</th>
                 <th>Description</th>
                 <th># of Episodes</th>
-                <!-- <th>Creator Name</th> -->
+                <th>Creator Name</th>
             </tr>
             <tr th:each="show: ${showList}">
                 <td><input type="checkbox" name="deleteList" th:value="${show.showId}"></td>
                 <td th:text="${show.showTitle}"></td>
                 <td th:text="${show.showDesc}"></td>
                 <td th:text="${show.showNum}"></td>
-                <!-- <td th:text="${show.}"></td> Creator Name? -->
+                <td th:text="${show.user.userName}"></td>
             </tr>
         </table>
         <input type="submit" value="Remove Selected Shows">
