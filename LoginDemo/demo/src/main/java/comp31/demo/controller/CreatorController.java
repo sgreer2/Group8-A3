@@ -38,40 +38,44 @@ public class CreatorController {
 
 
 
-    @PostMapping("/delete")
+    @PostMapping("/creatorDelete")
     public String delete(@RequestParam(value = "deleteList" , required = false) Long[] deleteList, Model model)
     {
         if (deleteList!=null)
         {
             for (int i=0; i< deleteList.length; i++) 
             {
-                showRepo.deleteById(deleteList[i]);
+                Show deleteShow = showRepo.findById(deleteList[i]).get();
+                showRepo.deleteById(deleteShow.getId());
+
+
             }
             
         }
-        List<Show> shows = (List<Show>) showRepo.findAll();
+        User creator =(User)model.getAttribute("currentUser");
+        List<Show> shows = (List<Show>) showRepo.findByUserId(creator.getId());
         model.addAttribute("shows", shows);
 
-        return "creatorPage";
+        return "creatorViewPage";
     }
 
-    @GetMapping("/addShow")
+    @GetMapping("/creatorAddShow")
     public String addShow(Model model)
     {
         Show newShow= new Show();
         model.addAttribute("newShow", newShow);
-        return "addShowForm";
+        return "creatorAddShow";
     }
 
-    @PostMapping("/addShow")
+    @PostMapping("/creatorAddShow")
     public String addShow(Show show, Model model)
     {
-        User user =(User)model.getAttribute("currentUser");
-        show.setUserId(user.getId());
+        User creator =(User)model.getAttribute("currentUser");
+        show.setUserId(creator.getId());
         showRepo.save(show);
-        List<Show> Shows = (List<Show>) showRepo.findAll();
-        model.addAttribute("Shows", Shows);
-        return "creatorPage";
+        List<Show> Shows = (List<Show>) showRepo.findByUserId(creator.getId());
+        model.addAttribute("creatorShows", Shows);
+        return "creatorViewPage";
     }
 
 

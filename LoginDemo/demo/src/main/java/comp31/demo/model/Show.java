@@ -32,7 +32,11 @@ public class Show {
     private Integer userId ;
 	public void setUserId(Integer userNew) {
         userId=userNew;
-	}
+  }
+  public Long getId()
+  {
+    return showId;
+  }
 
 
 
