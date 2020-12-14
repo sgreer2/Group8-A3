@@ -28,21 +28,13 @@ public class Show {
     private String showDesc;
     @Column(name="SHOW_NUM_EP")
     private Integer showNum;
-    @Column(name="USER_ID")
-    private Integer userId ;
-	public void setUserId(Integer userNew) {
-        userId=userNew;
+  @ManyToOne 
+  @JoinColumn(name = "USER_ID", nullable = true)
+  private User user;
+
+  public void setUser(User addUser){
+    user=addUser;
   }
-  public Long getId()
-  {
-    return showId;
-  }
-
-
-
-  //  @ManyToOne 
-  // @JoinColumn(name = "USER_ID", nullable = true)
-  // private User user;
 
     
 }

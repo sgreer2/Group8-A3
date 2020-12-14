@@ -33,7 +33,7 @@ public class CreatorController {
     public String viewPage(Model model)
     {
         User creator=(User)model.getAttribute("currentUser");
-        List <Show> creatorShows = showRepo.findByUserId(creator.getId());
+        List <Show> creatorShows = showRepo.findByUser(creator);
         model.addAttribute("creatorShows",creatorShows);
         return "creatorViewPage";
     }
@@ -53,12 +53,12 @@ public class CreatorController {
                 {
                     watchingRepo.delete(watchDelete.get(j));
                 }
-                showRepo.deleteById(deleteShow.getId());
+                showRepo.deleteById(deleteShow.getShowId());
             }
             
         }
         User creator =(User)model.getAttribute("currentUser");
-        List<Show> shows = (List<Show>) showRepo.findByUserId(creator.getId());
+        List<Show> shows = (List<Show>) showRepo.findByUser(creator);
         model.addAttribute("creatorShows", shows);
         return "creatorViewPage";
     }
@@ -75,9 +75,9 @@ public class CreatorController {
     public String addShow(Show show, Model model)
     {
         User creator =(User)model.getAttribute("currentUser");
-        show.setUserId(creator.getId());
+        show.setUser(creator);
         showRepo.save(show);
-        List<Show> Shows = (List<Show>) showRepo.findByUserId(creator.getId());
+        List<Show> Shows = (List<Show>) showRepo.findByUser(creator);
         model.addAttribute("creatorShows", Shows);
         return "creatorViewPage";
     }
