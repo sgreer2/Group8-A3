@@ -1,0 +1,34 @@
+<!-- Stephen Greer -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Show</title>
+</head>
+<body>
+    <h1>Admin Show List</h1>
+    <button><a href="/admin">Home</a></button>
+    <button><a href="/logout">Logout</a></button>
+
+    <form action="/adminDeleteShows" method="POST">
+        <table>
+            <tr>
+                <th>Selected</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th># of Episodes</th>
+                <!-- <th>Creator Name</th> -->
+            </tr>
+            <tr th:each="show: ${showList}">
+                <td><input type="checkbox" name="deleteList" th:value="${show.showId}"></td>
+                <td th:text="${show.showTitle}"></td>
+                <td th:text="${show.showDesc}"></td>
+                <td th:text="${show.showNum}"></td>
+                <!-- <td th:text="${show.}"></td> Creator Name? -->
+            </tr>
+        </table>
+        <input type="submit" value="Remove Selected Shows">
+    </form>
+</body>
+</html>

@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+//Nick Best
+
 @Entity
 @Data
 @Table (name="SHOW")
@@ -26,17 +28,13 @@ public class Show {
     private String showDesc;
     @Column(name="SHOW_NUM_EP")
     private Integer showNum;
+  @ManyToOne 
+  @JoinColumn(name = "USER_ID", nullable = true)
+  private User user;
 
-    @ManyToOne 
-    @JoinColumn(name = "USER_ID", nullable = true)
-    private User user;
-
-
-    public void setUser(User currentUser)
-    {
-        user= currentUser;
-
-    }
+  public void setUser(User addUser){
+    user=addUser;
+  }
 
     
 }
