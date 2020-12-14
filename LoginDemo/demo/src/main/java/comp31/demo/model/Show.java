@@ -41,8 +41,8 @@ public class Show {
 
 
   //  @ManyToOne 
-   // @JoinColumn(name = "USER_ID", nullable = true)
-   // private User user;
+  // @JoinColumn(name = "USER_ID", nullable = true)
+  // private User user;
 
     
 }
