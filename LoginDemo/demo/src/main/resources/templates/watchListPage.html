@@ -17,8 +17,8 @@
         </tr>
         <tr th:each="watch: ${watchList}">
             <td th:text="${watch.show.showTitle}"></td>
-            <td th:text="${show.episodesWatched}"></td>
-            <td th:text="${show.rating}"></td>
+            <td th:text="${watch.episodesWatched}"></td>
+            <td th:text="${watch.rating}"></td>
         </tr>
     </table>
     <button><a href="/logout">Logout</a></button>
