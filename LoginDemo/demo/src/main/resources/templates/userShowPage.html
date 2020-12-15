@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Watch List</h1>
+    <button><a href="/watchList">Your Watch List</a></button>
+    <button><a href="/showList">List of Shows</a></button>
+    <table border>
+        <tr>
+            <th>Title</th>
+            <th>Descreption</th>
+            <th>Number of Episodes</th>
+        </tr>
+        <tr th:each="show: ${showList}">
+            <td th:text="${show.showTitle}"></td>
+            <td th:text="${show.showDesc}"></td>
+            <td th:text="${show.showNum}"></td>
+        </tr>
+    </table>
+    <button><a href="/logout">Logout</a></button>
+</body>
+</html>
