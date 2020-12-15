@@ -9,9 +9,10 @@
 <body>
     <h1>Add Show</h1>
     <form action ="creatorAddShow" method = "POST" th:object="${newShow}">
-	
+		<h2 th:text="|Current Id: ${newShow.getShowId()}|"></h2>
+		
 		<label for = "showTitle">Title :</label>
-		<input type = "text" id = "showTitle" name = "" th:field="*{showTitle}"><br></br>
+		<input type = "text" id = "showTitle" name = "" th:field="*{showTitle}" ><br></br>
 		
 		<label for = "showDesc">Description :</label>
 		<input type = "text" id = "showDesc" name = "" th:field="*{showDesc}"><br></br>
