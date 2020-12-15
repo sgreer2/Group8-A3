@@ -88,7 +88,7 @@ public class AdminController {
                                     watchingRepo.delete(watch);
                                 }
                             }
-                            showRepo.deleteById(show.getShowId());
+                            showRepo.delete(show);
                         }
                     }
                     userRepo.delete(user);
