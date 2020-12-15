@@ -1,4 +1,4 @@
-// Nick Best
+<!-- Nick Best -->
 <!DOCTYPE html>
 <html lang="en"  xmlns:th="https://www.thymeleaf.org">
 <head>
@@ -10,8 +10,7 @@
 <body>
 
     <h1>Creator Page</h1>
-    <h2 th:text="|Current User: ${currentUser.getName()}|"></h2>
-    <h2 th:text="|Current Id: ${currentUser.getId()}|"></h2>
+    <h2 th:text="|Welcome: ${currentUser.getName()}|"></h2>
     <form>
         <button formaction="/viewCreator">View List of your shows</button>
     </form>
