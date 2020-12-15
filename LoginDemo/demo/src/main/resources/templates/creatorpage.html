@@ -8,7 +8,10 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-
+    <header>
+        <h4 th:text="|Current User: ${currentUser.getName()}|"></h4> 
+        <button><a href="/logout">Logout</a></button>
+    </header>
     <h1>Creator Page</h1>
     <h2 th:text="|Welcome: ${currentUser.getName()}|"></h2>
     <form>
