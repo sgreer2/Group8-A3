@@ -22,7 +22,7 @@ import comp31.demo.repo.WatchingRepo;
 @Controller
 
 
-@SessionAttributes({"currentUser", "creatorShows", "deleteList" })
+@SessionAttributes({"currentUser", "creatorShows", "deleteList", "newShow" })
 
 public class CreatorController {
     @Autowired ShowRepo showRepo;
@@ -68,15 +68,24 @@ public class CreatorController {
     {
         Show newShow= new Show();
         model.addAttribute("newShow", newShow);
-        return "creatorAddShow";
+        return "creatorAddPage";
+    }
+
+    @PostMapping("/creatorUpdateShow")
+    public String updateShow(Long showUpdate, Model model)
+    {
+        Show currentShow=showRepo.findByShowId(showUpdate).get(0);
+        model.addAttribute("newShow", currentShow );
+        return "creatorAddPage";
     }
 
     @PostMapping("/creatorAddShow")
-    public String addShow(Show show, Model model)
+    public String addShow(Show newShow, Model model)
     {
         User creator =(User)model.getAttribute("currentUser");
-        show.setUser(creator);
-        showRepo.save(show);
+        newShow.setUser(creator);
+        newShow.setShowId(((Show)model.getAttribute("newShow")).getShowId());
+        showRepo.save(newShow);
         List<Show> Shows = (List<Show>) showRepo.findByUser(creator);
         model.addAttribute("creatorShows", Shows);
         return "creatorViewPage";

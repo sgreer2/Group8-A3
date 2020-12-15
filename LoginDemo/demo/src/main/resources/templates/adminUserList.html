@@ -10,5 +10,22 @@
     <h1>Admin User List</h1>
     <button><a href="/admin">Home</a></button>
     <button><a href="/logout">Logout</a></button>
+
+    <form action="/adminDeleteUsers" method="POST">
+        <table>
+            <tr>
+                <th>Selected</th>
+                <th>Name</th>
+                <th>Role</th>
+            </tr>
+            <tr th:each="user: ${userList}">
+                <td><input type="checkbox" name="deleteList" th:value="${user.userId}"></td>
+                <td th:text="${user.userName}"></td>
+                <td th:text="${user.userRole}"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Remove Selected Shows">
+    </form>
+
 </body>
 </html>

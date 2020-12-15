@@ -56,12 +56,46 @@ public class AdminController {
         User currentUser = (User) model.getAttribute("currentUser");
         if (isValid(currentUser)){
             nextPage = "adminUserList";
-            // model.addAttribute("userList", userRepo.findAll());
+            model.addAttribute("userList", userRepo.findAll());
         } else{
             User user = new User();
             model.addAttribute("currentUser", null);
             model.addAttribute("newUser", user);
         }
+        return nextPage;
+    }
+
+    @PostMapping("/adminDeleteUsers")
+    public String adminDeleteUsers(@RequestParam(required = false, value="deleteList") Integer[] deleteList, Model model){
+        String nextPage = "adminUserList";
+
+        if (deleteList != null && deleteList.length > 0){
+            for (Integer userId : deleteList) {
+                User user = userRepo.findById(userId).get();
+                if (user != null){
+                    List<Watching> watchings = watchingRepo.findByUser(user);
+                    if (watchings != null){
+                        for (Watching watch : watchings) {
+                            watchingRepo.delete(watch);
+                        }
+                    }
+                    List<Show> shows = showRepo.findByUser(user);
+                    if (shows != null){
+                        for (Show show : shows) {
+                            watchings = watchingRepo.findByShow(show);
+                            if (watchings != null){
+                                for (Watching watch : watchings) {
+                                    watchingRepo.delete(watch);
+                                }
+                            }
+                            showRepo.delete(show);
+                        }
+                    }
+                    userRepo.delete(user);
+                }
+            }
+        }
+        model.addAttribute("userList", userRepo.findAll());
         return nextPage;
     }
 
@@ -98,7 +132,6 @@ public class AdminController {
                 }
             }
         }
-        
         model.addAttribute("showList", showRepo.findAll());
         return nextPage;
     }

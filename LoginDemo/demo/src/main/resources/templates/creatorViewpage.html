@@ -20,8 +20,9 @@
             <td th:text="${show.showTitle}"> </td>
             <td th:text="${show.showDesc}"> </td>
             <td th:text="${show.showNum}"> </td>
+            <td th:text="${show.showId}"> </td>
             <td><input type="checkbox" id="show" name="deleteList"  th:value=${show.showId}></td>
-            <td><button formaction="updateShow" th:value=${show.showId}>Update Show</button></td>
+            <td><button formaction="creatorUpdateShow" th:value=${show.showId} name="showUpdate">Update Show</button></td>
         </tr>
     </table>
     <td><button formaction="creatorDelete">Delete Show</button></td>
