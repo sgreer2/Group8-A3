@@ -1,4 +1,4 @@
-// Nick Best
+<!-- Nick Best -->
 <!DOCTYPE html>
 <html lang="en"  xmlns:th="https://www.thymeleaf.org">
 <head>
@@ -8,24 +8,24 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <h1>Seller Page</h1>
+    <h1>Creator View Page</h1>
     <h2 th:text="|Current User: ${currentUser.getName()}|"></h2>
-    <h2 th:text="|Current Id: ${currentUser.getId()}|"></h2>
     <form method="POST">
     <table>
         <th>Title</th>
         <th>Description</th>
         <th>Episode Count</th>
+        <th>Delete</th>
+        <th>Update</th>
         <tr th:each="show : ${creatorShows}">
             <td th:text="${show.showTitle}"> </td>
             <td th:text="${show.showDesc}"> </td>
             <td th:text="${show.showNum}"> </td>
-            <td th:text="${show.showId}"> </td>
             <td><input type="checkbox" id="show" name="deleteList"  th:value=${show.showId}></td>
             <td><button formaction="creatorUpdateShow" th:value=${show.showId} name="showUpdate">Update Show</button></td>
         </tr>
     </table>
-    <td><button formaction="creatorDelete">Delete Show</button></td>
+    <button formaction="creatorDelete">Delete Show(s)</button>
     </form>
     <form>
     <button formaction="creatorAddShow">Add New Show</button>
