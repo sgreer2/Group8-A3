@@ -1,2 +1,10 @@
 Stephen Greer Changelog
 
+- Dec 5th - Created the Git Repo
+- Dec 7th - Created and Coded the Watching Model and Repo
+- Dec 9th - Added the blank pages needed for the admin role
+- Dec 9th - Setup user validation for the GetMappings in the AdminController
+- Dec 14th - Added findByShow function to the WatchingRepo
+- Dec 14th - Added functionality for admin to manage shows
+- Dec 15th - Added more sample data to the data.sql file
+- Dec 15th - Added functionality for admin to manage users

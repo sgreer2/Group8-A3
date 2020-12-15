@@ -15,5 +15,4 @@ import comp31.demo.model.Watching;
 public interface WatchingRepo extends CrudRepository<Watching, Integer> {
     List<Watching> findByUser(User user);
     List<Watching> findByShow(Show show);
-	List<Watching> deleteByShow(Show deleteShow);
 }
