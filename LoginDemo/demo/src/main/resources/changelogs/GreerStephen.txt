@@ -8,3 +8,5 @@ Stephen Greer Changelog
 - Dec 14th - Added functionality for admin to manage shows
 - Dec 15th - Added more sample data to the data.sql file
 - Dec 15th - Added functionality for admin to manage users
+- Dec 15th - Added findByUserRole function to userRepo
+- Dec 15th - Admins can now filter users by role in the manage users page

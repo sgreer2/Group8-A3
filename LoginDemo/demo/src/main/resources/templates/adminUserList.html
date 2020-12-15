@@ -11,6 +11,19 @@
     <button><a href="/admin">Home</a></button>
     <button><a href="/logout">Logout</a></button>
 
+    <h2>Filter by User Role</h2>
+    <form action="/adminUserList" method="GET">
+        <label for="role">Role</label>
+        <select name="role" id="role">
+            <option value="">No Filter</option>
+            <option value="user">User</option>
+            <option value="creator">Creator</option>
+            <option value="admin">Admin</option>
+        </select>
+        <button>Filter by Role</button>
+    </form>
+
+    <h2>Users</h2>
     <form action="/adminDeleteUsers" method="POST">
         <table>
             <tr>
@@ -24,7 +37,7 @@
                 <td th:text="${user.userRole}"></td>
             </tr>
         </table>
-        <input type="submit" value="Remove Selected Shows">
+        <input type="submit" value="Remove Selected Users">
     </form>
 
 </body>

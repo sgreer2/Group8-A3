@@ -51,12 +51,15 @@ public class AdminController {
     }
 
     @GetMapping("/adminUserList")
-    public String adminUList(Model model){
+    public String adminUList(@RequestParam(required = false, value="role") String roleFilter, Model model){
         String nextPage = "login";
         User currentUser = (User) model.getAttribute("currentUser");
         if (isValid(currentUser)){
             nextPage = "adminUserList";
-            model.addAttribute("userList", userRepo.findAll());
+            if (roleFilter == null || roleFilter.length() <= 0)
+                model.addAttribute("userList", userRepo.findAll());
+            else
+                model.addAttribute("userList", userRepo.findByUserRole(roleFilter));
         } else{
             User user = new User();
             model.addAttribute("currentUser", null);

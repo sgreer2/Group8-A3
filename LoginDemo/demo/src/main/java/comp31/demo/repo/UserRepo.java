@@ -13,5 +13,6 @@ import comp31.demo.model.User;
 @Repository
 public interface UserRepo extends CrudRepository<User, Integer> {
     List<User> findByUserName(String userName);
+    List<User> findByUserRole(String userRole);
     
 }
