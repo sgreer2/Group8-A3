@@ -11,3 +11,4 @@ Stephen Greer Changelog
 - Dec 15th - Added findByUserRole function to userRepo
 - Dec 15th - Admins can now filter users by role on the manage users page
 - Dec 15th - Admins can now filter shows by creators on the manage shows page
+- Dec 16th - Added list of valid usernames to the login page
