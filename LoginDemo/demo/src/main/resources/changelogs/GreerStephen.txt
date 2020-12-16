@@ -1,6 +1,7 @@
 Stephen Greer Changelog
 
-- Dec 5th - Created the Git Repo
+- Dec 2nd - Made the schema.sql and data.sql files and added them to the base project
+- Dec 5th - Created a Git Repo and added base project to it
 - Dec 7th - Created and Coded the Watching Model and Repo
 - Dec 9th - Added the blank pages needed for the admin role
 - Dec 9th - Setup user validation for the GetMappings in the AdminController
@@ -12,3 +13,4 @@ Stephen Greer Changelog
 - Dec 15th - Admins can now filter users by role on the manage users page
 - Dec 15th - Admins can now filter shows by creators on the manage shows page
 - Dec 16th - Added list of valid usernames to the login page
+- Dec 16th - Creates the styles.css to make the tables look better
