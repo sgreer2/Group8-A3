@@ -1,3 +1,4 @@
+<!-- Stephen Greer -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +9,20 @@
 <body>
     <form action="/login" method="POST" th:object="${newUser}">
 
-        <label for="username"></label>
-            <input type="text" th:field="*{userName}" id="username" >
-            <br>
-            <input type="submit" value="Login">
+        <label for="username">Username: </label>
+        <input type="text" th:field="*{userName}" id="username" >
+        <br>
+        <input type="submit" value="Login">
     </form>
+
+    <h2>Valid Usernames</h2>
+    <ul>
+        <li>admin</li>
+        <li>creator1</li>
+        <li>creator2</li>
+        <li>user1</li>
+        <li>user2</li>
+    </ul>
 
 </body>
 </html>
