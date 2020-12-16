@@ -38,4 +38,8 @@ public class Watching {
 
     @Column(name = "RATING")
     private Integer rating;
+
+    public Integer getWatchingId() {
+		return watchingId;
+    }
 }

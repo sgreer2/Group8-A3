@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import comp31.demo.model.User;
@@ -33,11 +34,14 @@ public class UserController {
         currentUser = (User)model.getAttribute("currentUser");
 
         // user watching list
-        model.addAttribute("watchList", watchingRepo.findByUser(currentUser).get(0));
+        model.addAttribute("watchList", watchingRepo.findByUser(currentUser));
 
         // initialize adding to watch list
         Watching newWatch= new Watching();
         model.addAttribute("newWatch", newWatch);
+
+        // show list for form dropdown
+        model.addAttribute("showList",showRepo.findAll());
 
         return nextPage;
     }
@@ -51,5 +55,33 @@ public class UserController {
 
         return nextPage;
 
+    }
+
+    @PostMapping("/watchList")
+    public String addShow(String showTitle, Watching newWatching, Model model)
+    {
+        String nextPage = "watchListPage";
+
+        // set user
+        User currentUser =(User)model.getAttribute("currentUser");
+        newWatching.setUser(currentUser);
+
+        // set show
+        newWatching.setShow(showRepo.findByShowTitle(showTitle).get(0));
+
+        // add new watching to watch list
+        watchingRepo.save(newWatching);
+
+        // user watching list
+        model.addAttribute("watchList", watchingRepo.findByUser(currentUser));
+
+        // initialize adding to watch list
+        Watching newWatch= new Watching();
+        model.addAttribute("newWatch", newWatch);
+
+        // show list for form dropdown
+        model.addAttribute("showList",showRepo.findAll());
+        
+        return nextPage;
     }
 }

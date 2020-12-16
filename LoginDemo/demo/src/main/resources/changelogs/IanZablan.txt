@@ -1,0 +1,10 @@
+Ian Zablan Changelog
+
+- Dec. 5
+- - added watch List
+- Dec. 14
+- - added show List
+- Dec 15
+- - started add to watch list functionality
+- Dec 16
+- - Finished add to watch list functionlity
