@@ -11,6 +11,17 @@
     <button><a href="/admin">Home</a></button>
     <button><a href="/logout">Logout</a></button>
 
+    <h2>Filter by Creator</h2>
+    <form action="/adminShowList" method="GET">
+        <label for="creator">Creator</label>
+        <select name="creator" id="creator">
+            <option value="">No Filter</option>
+            <option th:each="user: ${creators}" th:value="${user.userName}" th:text="${user.userName}"></option>
+        </select>
+        <button>Filter by Role</button>
+    </form>
+
+    <h2>Shows</h2>
     <form action="/adminDeleteShows" method="POST">
         <table>
             <tr>
