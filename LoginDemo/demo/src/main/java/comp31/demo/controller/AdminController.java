@@ -29,6 +29,7 @@ public class AdminController {
     @Autowired UserRepo userRepo;
     @Autowired WatchingRepo watchingRepo;
 
+    // Used to validate taht user exists and is an admin
     private Boolean isValid(User user){
         Boolean result = false;
         if (user != null && loginService.validate(user.getUserName()) != null && user.getUserRole().equals("admin"))
@@ -36,6 +37,7 @@ public class AdminController {
         return result;
     }
 
+    // Sends user to the admin menu page if they have valid access, otherwise sent to login page
     @GetMapping("/admin")
     public String admin(Model model){
         String nextPage = "login";
@@ -50,6 +52,7 @@ public class AdminController {
         return nextPage;
     }
 
+    // If validated, sends user to view a list of users that can be filtered. Otherwise sends to login page
     @GetMapping("/adminUserList")
     public String adminUList(@RequestParam(required = false, value="role") String roleFilter, Model model){
         String nextPage = "login";
@@ -68,6 +71,7 @@ public class AdminController {
         return nextPage;
     }
 
+    // Deletes the selected users and any other data associated with them(ie, records in Watching and Show tables)
     @PostMapping("/adminDeleteUsers")
     public String adminDeleteUsers(@RequestParam(required = false, value="deleteList") Integer[] deleteList, Model model){
         String nextPage = "adminUserList";
@@ -102,6 +106,7 @@ public class AdminController {
         return nextPage;
     }
 
+    // If validated, sends user to view a list of shows that can be filtered. Otherwise sends to login page
     @GetMapping("/adminShowList")
     public String adminSList(@RequestParam(required = false, value="creator") String userFilter, Model model){
         String nextPage = "login";
@@ -126,6 +131,7 @@ public class AdminController {
         return nextPage;
     }
 
+    // Deletes the selected shows, and all records associated with that show in the Watching table 
     @PostMapping("/adminDeleteShows")
     public String adminDeleteShows(@RequestParam(required = false, value="deleteList") Long[] deleteList, Model model){
         String nextPage = "adminShowList";
