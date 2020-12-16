@@ -14,3 +14,4 @@ Stephen Greer Changelog
 - Dec 15th - Admins can now filter shows by creators on the manage shows page
 - Dec 16th - Added list of valid usernames to the login page
 - Dec 16th - Creates the styles.css to make the tables look better
+- Dec 16th - Added a header fragment
