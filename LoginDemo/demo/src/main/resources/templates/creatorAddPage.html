@@ -8,10 +8,7 @@
 	<link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-	<header>
-        <h4 th:text="|Current User: ${currentUser.getName()}|"></h4> 
-        <button><a href="/logout">Logout</a></button>
-    </header>
+	<header th:insert="/fragments/header :: header"></header>
     <h1>Add Show</h1>
     <form action ="creatorAddShow" method = "POST" th:object="${newShow}">
 		
