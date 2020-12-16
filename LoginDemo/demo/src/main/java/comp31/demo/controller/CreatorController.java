@@ -29,6 +29,7 @@ public class CreatorController {
     @Autowired UserRepo userRepo;
     @Autowired WatchingRepo watchingRepo;
 
+    // sets up list of shows and forwards to creatorviewpage
     @GetMapping("/viewCreator")
     public String viewPage(Model model)
     {
@@ -39,7 +40,7 @@ public class CreatorController {
     }
 
 
-
+    // deletes selected shows and associated watching records
     @PostMapping("/creatorDelete")
     public String delete(@RequestParam(value = "deleteList" , required = false) Long[] deleteList, Model model)
     {
@@ -63,6 +64,7 @@ public class CreatorController {
         return "creatorViewPage";
     }
 
+    // creates new show object to add a show
     @GetMapping("/creatorAddShow")
     public String addShow(Model model)
     {
@@ -71,6 +73,7 @@ public class CreatorController {
         return "creatorAddPage";
     }
 
+    // recieves show object to send to add show
     @PostMapping("/creatorUpdateShow")
     public String updateShow(Long showUpdate, Model model)
     {
@@ -79,6 +82,7 @@ public class CreatorController {
         return "creatorAddPage";
     }
 
+    // post mapping for adding/updating a show
     @PostMapping("/creatorAddShow")
     public String addShow(Show newShow, Model model)
     {
