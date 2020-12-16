@@ -8,6 +8,7 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
+    <header th:insert="/fragments/header :: header"></header>
     <h1>Creator Page</h1>
     <h2 th:text="|Welcome: ${currentUser.getName()}|"></h2>
     <form>
