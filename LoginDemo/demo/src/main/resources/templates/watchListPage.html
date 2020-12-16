@@ -21,6 +21,24 @@
             <td th:text="${watch.rating}"></td>
         </tr>
     </table>
+    <h1>Add To Watch List</h1>
+    <form action ="watchList" method = "POST" th:object="${newWatch}">
+		
+		<label for = "showTitle">Show Title :</label>
+        <!-- <input type = "showTitle" id = "showTitle" name = "showTitle"><br></br> -->
+        <select name = "showTitle" id = "showTitle">
+            <option th:each="show: ${showList}" th:value = "${show.showTitle}" th:text="${show.showTitle}"></option>
+        </select>
+		
+		<label for = "epWatched">Episodes Watched :</label>
+		<input type = "text" id = "epWatched" name = "" th:field="*{episodesWatched}"><br></br>
+		
+		<label for = "epRating">Rating : </label>
+		<input type = "text" id = "epRating" name = "" th:field="*{rating}"><br></br>
+        
+		<input type = "submit" value = "Submit">
+		
+    </form>
     <button><a href="/logout">Logout</a></button>
 </body>
 </html>

@@ -15,6 +15,7 @@ public interface ShowRepo extends CrudRepository <Show, Long> {
     public List<Show> findAll();
     public List<Show> findByShowId(Long showId);
     //Show Repo goes here
-	public List<Show> findByUser(User creator);
+    public List<Show> findByUser(User creator);
+    public List<Show> findByShowTitle(String showTitle);
     
 }
