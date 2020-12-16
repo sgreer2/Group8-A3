@@ -8,9 +8,9 @@
     <title>Admin - Show</title>
 </head>
 <body>
+    <header th:insert="/fragments/header :: header"></header>
     <h1>Manage Shows</h1>
     <button><a href="/admin">Home</a></button>
-    <button><a href="/logout">Logout</a></button>
 
     <h2>Filter by Creator</h2>
     <form action="/adminShowList" method="GET">

@@ -15,3 +15,4 @@ Stephen Greer Changelog
 - Dec 16th - Added list of valid usernames to the login page
 - Dec 16th - Creates the styles.css to make the tables look better
 - Dec 16th - Added a header fragment
+- Dec 16th - Added header fragment to all the admin pages
