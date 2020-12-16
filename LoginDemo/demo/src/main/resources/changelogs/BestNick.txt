@@ -1,0 +1,18 @@
+Dec 7th - Created show model and repo classes
+        - Created creatorpage.html
+        - fixed error with query in show repo
+
+Dec 9th - Added creator view page
+        - Added delete function to creator Controller
+
+Dec 12th - Fixed incorrect column name in show model classes
+         - Updated creator view page with buttons for update and delete
+
+Dec 14th - Added addshow to the creator controller as well as created creatorAddPage
+         - Added code to delete watching before deleting shows
+
+Dec 15th - Added update to creator controller and merged functionality with add page
+         - Added find by user to show repo
+         - Fixed bug with show object not being sent when update was called
+         - Added header with username and logout button
+

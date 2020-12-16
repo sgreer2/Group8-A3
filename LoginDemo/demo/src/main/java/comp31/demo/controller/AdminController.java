@@ -51,12 +51,15 @@ public class AdminController {
     }
 
     @GetMapping("/adminUserList")
-    public String adminUList(Model model){
+    public String adminUList(@RequestParam(required = false, value="role") String roleFilter, Model model){
         String nextPage = "login";
         User currentUser = (User) model.getAttribute("currentUser");
         if (isValid(currentUser)){
             nextPage = "adminUserList";
-            model.addAttribute("userList", userRepo.findAll());
+            if (roleFilter == null || roleFilter.length() <= 0)
+                model.addAttribute("userList", userRepo.findAll());
+            else
+                model.addAttribute("userList", userRepo.findByUserRole(roleFilter));
         } else{
             User user = new User();
             model.addAttribute("currentUser", null);
@@ -100,17 +103,26 @@ public class AdminController {
     }
 
     @GetMapping("/adminShowList")
-    public String adminSList(Model model){
+    public String adminSList(@RequestParam(required = false, value="creator") String userFilter, Model model){
         String nextPage = "login";
         User currentUser = (User) model.getAttribute("currentUser");
         if (isValid(currentUser)){
             nextPage = "adminShowList";
-            model.addAttribute("showList", showRepo.findAll());
+            if (userFilter == null || userFilter.length() <=0)
+                model.addAttribute("showList", showRepo.findAll());
+            else{
+                User filteredUser = userRepo.findByUserName(userFilter).get(0);
+                if (filteredUser != null)
+                    model.addAttribute("showList", showRepo.findByUser(filteredUser));
+                else
+                    model.addAttribute("showList", showRepo.findAll());
+            }
         } else{
             User user = new User();
             model.addAttribute("currentUser", null);
             model.addAttribute("newUser", user);
         }
+        model.addAttribute("creators", userRepo.findByUserRole("creator"));
         return nextPage;
     }
 
